@@ -1,11 +1,18 @@
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from allauth.account.signals import user_signed_up
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
 
 
 class Userpr(models.Model):
-    username = models.CharField('username',max_length=150,unique=True,db_index=True)
-    password = models.CharField('password',db_index=True,max_length=120)
-    email = models.EmailField('Email',unique=True,max_length=150)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(default=None, max_length=255)
+    email = models.CharField(default=None, max_length=500)
 
     def __str__(self):
-        return self.username
+        return self.user.username
+
+    #@receiver(user_signed_up)
+    #def populate_profile(sociallogin, user, **kwargs):
+
+        #user.profile = Userpr()
