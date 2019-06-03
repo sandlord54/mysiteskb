@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for temp  in templ_list%}
+    Название шаблона: {{ temp.namet }} </br>
+     Ведущий: {{  temp.leading }} </br>
+        Тема: {{ temp.theme }} </br>
+            Дата: {{ temp.datetime }} </br>
+{% endfor %}
+
+</body>
+</html>

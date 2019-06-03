@@ -14,7 +14,6 @@ admin.site.register(RequiredPeople)
 
 admin.site.register(Titempl)
 
-
 admin.site.register(Vremidat)
 
 admin.site.register(Peoplincollect)

@@ -3,10 +3,11 @@ from django.shortcuts import render
 from pril import models
 from pril.models import Collect,Template
 from userpr.models import Userpr
+from django.http import HttpResponse
 
 
 def index(request):
-    return render (request, "base.html")
+    return render (request,'base.html')
 
 
 def meetings_list(request):

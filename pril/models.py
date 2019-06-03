@@ -41,6 +41,7 @@ class Collect(models.Model):  # Собрание
     data = models.DateTimeField(auto_now_add=False)
     org = models.CharField('Организатор', max_length=70, unique=True)
     theme = models.CharField('Тема собрания', max_length=250)
+    opisan = models.CharField('Описание собрания',max_length=500)
     #flagin = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='flagin')
     #peopleincoll = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='peopleincoll')
 

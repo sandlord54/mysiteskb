@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.contrib.auth import views as auth_views
 from django.http import HttpResponseRedirect
 
-from pril.views import meetings_list,template_sobr
+from pril.views import meetings_list, template_sobr, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +28,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('collect/',meetings_list),
     path('templsobr/',template_sobr),
+    path('home/',index)
 ]
