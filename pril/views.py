@@ -15,9 +15,13 @@ def meetings_list(request):
     return render(request, 'collect.html', context)
 
 def user_list(request):
-    usar = Userpr.objects.all()
-    context = {'usar':usar}
+    usarsi = Userpr.objects.filter(user=request.user)
+    context = {'usarsi':usarsi}
     return render(request,'collect.html',context)
+
+def viev_profile (request):
+    args ={'user': request.user}
+    return render(request,'collect.html',args)
 
 
 def template_sobr(request):

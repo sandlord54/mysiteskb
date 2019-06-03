@@ -36,25 +36,21 @@ class Template(models.Model): #Шаблон собрания
         return self.namet
 
 
-class Golos(models.Model):
-    #username = models.ForeignKey('userpr.Userpr',verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE,default=True)
-    flag= models.BooleanField('flag',default=False)
-    timemomenst = models.DateTimeField(auto_now_add=True)
-
-    #def __str__(self):
-     #   return self.username
-
-
 class Collect(models.Model):  # Собрание
-    name = models.CharField('Название собрания', max_length=100, db_index=True)
+    name = models.CharField('Название собрания', max_length=100, db_index=True,primary_key=True)
     data = models.DateTimeField(auto_now_add=False)
     org = models.CharField('Организатор', max_length=70, unique=True)
     theme = models.CharField('Тема собрания', max_length=250)
-    flagin = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='flagin')
+    #flagin = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='flagin')
     #peopleincoll = models.ForeignKey(Golos,on_delete=models.CASCADE,related_name='peopleincoll')
 
     def __str__(self):
         return self.name
+
+class Golos(models.Model):
+    namesobr = models.ForeignKey(Collect, default=False, on_delete=models.CASCADE, related_name='namesobr')
+    username = models.ForeignKey('userpr.Userpr',verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE,default=True)
+    flag= models.BooleanField('flag',default=False)
 
 class RequiredPeople(models.Model):
     namesobr = models.ManyToManyField(Titempl)
@@ -65,6 +61,15 @@ class RequiredPeople(models.Model):
 
    # def __str__(self):
        # return self.namesobr
+
+
+class Peoplincollect (models.Model):
+    nazvsobr = models.ForeignKey(Collect,default=False,on_delete=models.CASCADE,related_name='nazvsobr')
+    user = models.ForeignKey('userpr.Userpr',verbose_name='user',on_delete=models.CASCADE,unique=False)
+    #НЕ ПРАВИЛЬНО уникальность.
+
+    #def __str__(self):
+        #return self.nazvsobr, self.user
 
 
 

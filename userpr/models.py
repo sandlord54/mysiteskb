@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Userpr(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,primary_key=True)
     full_name = models.CharField(default=None, max_length=255)
     email = models.CharField(default=None, max_length=500)
 
