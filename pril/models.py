@@ -39,6 +39,7 @@ class Template(models.Model): #Шаблон собрания
 class Collect(models.Model):  # Собрание
     name = models.CharField('Название собрания', max_length=100, db_index=True,primary_key=True)
     data = models.DateTimeField(auto_now_add=False)
+    tpesobr = models.CharField('Тип собрания',max_length= 20,default='Общедоступное')
     org = models.CharField('Организатор', max_length=70, unique=True)
     theme = models.CharField('Тема собрания', max_length=250)
     opisan = models.CharField('Описание собрания',max_length=500)
