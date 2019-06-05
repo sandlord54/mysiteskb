@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+
 from userpr import models
 from django.db import models
 import datetime
@@ -51,7 +53,7 @@ class Collect(models.Model):  # Собрание
 
 class Golos(models.Model):
     namesobr = models.ForeignKey(Collect, default=False, on_delete=models.CASCADE, related_name='namesobr')
-    username = models.ForeignKey('userpr.Userpr',verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE,default=True)
+    username = models.ForeignKey(User,verbose_name='Пользователь',related_name='up',on_delete=models.CASCADE,default=True)
     flag= models.BooleanField('flag',default=False)
 
 class RequiredPeople(models.Model):

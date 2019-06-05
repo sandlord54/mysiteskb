@@ -28,5 +28,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('collect/',meetings_list),
     path('templsobr/',template_sobr),
-    path('home/',index)
+    path('',index)
 ]
