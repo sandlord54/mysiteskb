@@ -136,7 +136,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/collect/'
-ACCOUNT_LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/home/'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000'
 LOGIN_URL = 'accounts/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #ACCOUNT_USER_MODEL_USERNAME_FIELD = None
